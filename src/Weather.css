@@ -1,0 +1,16 @@
+.Weather {
+  border: 1px solid grey;
+  border-radius: 10px;
+  max-width: 600px;
+  padding: 10px;
+}
+
+.Weather .forecast {
+  text-align: center;
+}
+
+.Weather ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
