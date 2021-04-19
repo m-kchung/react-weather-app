@@ -1,16 +1,103 @@
 .Weather {
-  border: 1px solid grey;
-  border-radius: 10px;
-  max-width: 600px;
-  padding: 10px;
-}
-
-.Weather .forecast {
-  text-align: center;
+  border-radius: 20px;
+  padding: 20px 15px;
+  margin: 30px auto 0;
+  background-image: linear-gradient(
+    to top,
+    #fffaf5 0%,
+    #fff5eb 1%,
+    #8fdbff 100%
+  );
 }
 
 .Weather ul {
   list-style: none;
   text-align: center;
   padding: 0;
+}
+
+.Weather li {
+  font-size: 15px;
+}
+
+.Weather h1 {
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0px;
+}
+.Weather h2 {
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.Weather h3 {
+  font-size: 25px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.Weather h4 {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.Weather h5 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 25px;
+}
+
+.Weather p {
+  font-size: 15px;
+  margin: 0;
+  font-weight: 300;
+}
+.Weather .forecast {
+  text-align: center;
+}
+
+.Weather .searchBar {
+  border: 0px;
+  outline: none;
+  width: 60%;
+}
+
+.Weather .searchForm {
+  align-items: center;
+  padding: 12px 16px;
+  background: #fff;
+  border-radius: 100px;
+}
+
+.Weather .searchSection {
+  margin: 10px 0 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.Weather form {
+  display: inline;
+}
+
+.Weather .weatherDetails {
+  text-align: center;
+  border-radius: 15px;
+  padding: 15px 0px;
+  margin: 15px 13% 0;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.Weather .detailsRow {
+  margin: 0;
+}
+
+.Weather .colBorder {
+  border-right: 1px solid #5b5b5b;
+}
+
+.Weather .colFormatting {
+  padding: 0px;
 }

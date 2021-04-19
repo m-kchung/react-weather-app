@@ -6,6 +6,16 @@ function App() {
     <div className="App">
       <div className="container">
         <Weather />
+        <footer>
+          <a
+            href="https://github.com/m-kchung/react-weather-app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open-source code
+          </a>{" "}
+          by Min Chung
+        </footer>
       </div>
     </div>
   );

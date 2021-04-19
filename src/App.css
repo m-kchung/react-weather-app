@@ -1,0 +1,13 @@
+body {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: #5b5b5b;
+}
+
+.App {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.App footer {
+  text-align: center;
+}
