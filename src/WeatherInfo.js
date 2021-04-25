@@ -1,43 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import WeatherDetails from "./WeatherDetails";
 
 export default function WeatherInfo(props) {
-  return (
-    <div className="WeatherInfo">
-      <div className="row">
-        <div className="col-9">
-          <h1>{props.data.city}</h1>
-          <h4>
-            <FormattedDate date={props.data.date} />
-          </h4>
-        </div>
-        <div className="col-3">
-          <button className="btn btn-primary">ºC</button>
-          <button className="btn btn-outline-primary">ºF</button>
-        </div>
-      </div>
-      <div className="forecast">
-        <WeatherIcon code={props.data.icon} alt={props.data.description} />
-        <h1>{Math.round(props.data.temperature)}ºC</h1>
-        <h3 className="text-capitalize">{props.data.description}</h3>
-      </div>
-      <div className="weatherDetails">
-        <div className="row detailsRow">
-          <div className="col-4 colFormatting colBorder">
-            <h5>{Math.round(props.data.wind)}km/h</h5>
-            <p>Wind</p>
+  const [unit, setUnit] = useState("celsius");
+
+  function convertToFahrenheit(event) {
+    event.preventDefault();
+    setUnit("fahrenheit");
+  }
+
+  function convertToCelsius(event) {
+    event.preventDefault();
+    setUnit("celsius");
+  }
+
+  function fahrenheit() {
+    return (props.data.temperature * 9) / 5 + 32;
+  }
+
+  if (unit === "celsius") {
+    return (
+      <div className="WeatherInfo">
+        <div className="row">
+          <div className="col-9">
+            <h1>{props.data.city}</h1>
+            <h4>
+              <FormattedDate date={props.data.date} />
+            </h4>
           </div>
-          <div className="col-4 colFormatting colBorder">
-            <h5>{props.data.humidity}%</h5>
-            <p>Humidity</p>
-          </div>
-          <div className="col-4">
-            <h5>{Math.round(props.data.feelsLike)}ºC</h5>
-            <p>Feels Like</p>
+          <div className="col-3">
+            <button className="btn unitButton activeButton">ºC</button>
+            <button
+              className="btn unitButton notActiveButton"
+              onClick={convertToFahrenheit}
+            >
+              ºF
+            </button>
           </div>
         </div>
+        <div className="forecast">
+          <WeatherIcon code={props.data.icon} alt={props.data.description} />
+          <h1>{Math.round(props.data.temperature)}ºC</h1>
+          <h3 className="text-capitalize">{props.data.description}</h3>
+        </div>
+        <WeatherDetails details={props.data} unit={unit} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="WeatherInfo">
+        <div className="row">
+          <div className="col-9">
+            <h1>{props.data.city}</h1>
+            <h4>
+              <FormattedDate date={props.data.date} />
+            </h4>
+          </div>
+          <div className="col-3">
+            <button
+              className="btn unitButton notActiveButton"
+              onClick={convertToCelsius}
+            >
+              ºC
+            </button>
+            <button className="btn unitButton activeButton">ºF</button>
+          </div>
+        </div>
+        <div className="forecast">
+          <WeatherIcon code={props.data.icon} alt={props.data.description} />
+          <h1>{Math.round(fahrenheit())}ºF</h1>
+          <h3 className="text-capitalize">{props.data.description}</h3>
+        </div>
+        <WeatherDetails details={props.data} unit={unit} />
+      </div>
+    );
+  }
 }

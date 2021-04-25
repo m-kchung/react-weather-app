@@ -105,3 +105,26 @@
 .Weather canvas {
   margin: 15px auto;
 }
+
+.Weather .unitButton {
+  padding: 8px 13px;
+  border-radius: 13px;
+  color: #5b5b5b;
+}
+
+.Weather .unitButton:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.Weather .unitButton:focus {
+  box-shadow: none;
+}
+
+.Weather .activeButton {
+  background-color: #5b5b5b;
+  color: white;
+}
+
+.Weather .notActiveButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
