@@ -62,7 +62,7 @@
 .Weather .searchBar {
   border: 0px;
   outline: none;
-  width: 60%;
+  width: 50%;
 }
 
 .Weather .searchForm {
@@ -127,4 +127,14 @@
 
 .Weather .notActiveButton:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.Weather .searchIcon {
+  font-size: 20px;
+  padding: 0 10px 0 0;
+}
+
+.Weather .locationIcon {
+  font-size: 30px;
+  padding: 5px;
 }

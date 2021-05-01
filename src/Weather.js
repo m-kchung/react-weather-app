@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import { FaSearch } from "react-icons/fa";
+import { MdLocationOn } from "react-icons/md";
 
 import WeatherInfo from "./WeatherInfo";
 
@@ -44,7 +46,9 @@ export default function Weather(props) {
         <div className="searchSection">
           <span className="searchForm">
             <form onSubmit={handleSubmit}>
-              🔍
+              <span className="searchIcon">
+                <FaSearch />
+              </span>
               <input
                 type="text"
                 placeholder="Enter a City"
@@ -54,7 +58,9 @@ export default function Weather(props) {
               />
             </form>
           </span>
-          📍
+          <span className="locationIcon">
+            <MdLocationOn />
+          </span>
         </div>
         <WeatherInfo data={weatherData} />
       </div>
