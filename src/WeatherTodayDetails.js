@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function WeatherDetails(props) {
+export default function WeatherTodayDetails(props) {
   function fahrenheit() {
     return (props.details.feelsLike * 9) / 5 + 32;
   }
   if (props.unit === "celsius") {
     return (
-      <div className="weatherDetails">
+      <div className="WeatherTodayDetails">
         <div className="row detailsRow">
           <div className="col-4 colFormatting colBorder">
             <h5>{Math.round(props.details.wind)}km/h</h5>
@@ -25,7 +25,7 @@ export default function WeatherDetails(props) {
     );
   } else {
     return (
-      <div className="weatherDetails">
+      <div className="WeatherTodayDetails">
         <div className="row detailsRow">
           <div className="col-4 colFormatting colBorder">
             <h5>{Math.round(props.details.wind)}km/h</h5>

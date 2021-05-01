@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
-import WeatherDetails from "./WeatherDetails";
+import WeatherTodayDetails from "./WeatherTodayDetails";
 
-export default function WeatherInfo(props) {
+export default function WeatherToday(props) {
   const [unit, setUnit] = useState("celsius");
 
   function convertToFahrenheit(event) {
@@ -22,7 +22,7 @@ export default function WeatherInfo(props) {
 
   if (unit === "celsius") {
     return (
-      <div className="WeatherInfo">
+      <div className="WeatherToday">
         <div className="row">
           <div className="col-9">
             <h1>{props.data.city}</h1>
@@ -45,12 +45,12 @@ export default function WeatherInfo(props) {
           <h1>{Math.round(props.data.temperature)}ºC</h1>
           <h3 className="text-capitalize">{props.data.description}</h3>
         </div>
-        <WeatherDetails details={props.data} unit={unit} />
+        <WeatherTodayDetails details={props.data} unit={unit} />
       </div>
     );
   } else {
     return (
-      <div className="WeatherInfo">
+      <div className="WeatherToday">
         <div className="row">
           <div className="col-9">
             <h1>{props.data.city}</h1>
@@ -73,7 +73,7 @@ export default function WeatherInfo(props) {
           <h1>{Math.round(fahrenheit())}ºF</h1>
           <h3 className="text-capitalize">{props.data.description}</h3>
         </div>
-        <WeatherDetails details={props.data} unit={unit} />
+        <WeatherTodayDetails details={props.data} unit={unit} />
       </div>
     );
   }

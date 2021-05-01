@@ -4,7 +4,7 @@ import "./Weather.css";
 import { FaSearch } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 
-import WeatherInfo from "./WeatherInfo";
+import WeatherToday from "./WeatherToday";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -62,7 +62,7 @@ export default function Weather(props) {
             <MdLocationOn />
           </span>
         </div>
-        <WeatherInfo data={weatherData} />
+        <WeatherToday data={weatherData} />
       </div>
     );
   } else {
