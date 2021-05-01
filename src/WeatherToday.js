@@ -41,7 +41,11 @@ export default function WeatherToday(props) {
           </div>
         </div>
         <div className="forecast">
-          <WeatherIcon code={props.data.icon} alt={props.data.description} />
+          <WeatherIcon
+            code={props.data.icon}
+            alt={props.data.description}
+            size="120"
+          />
           <h1>{Math.round(props.data.temperature)}ºC</h1>
           <h3 className="text-capitalize">{props.data.description}</h3>
         </div>
@@ -69,7 +73,11 @@ export default function WeatherToday(props) {
           </div>
         </div>
         <div className="forecast">
-          <WeatherIcon code={props.data.icon} alt={props.data.description} />
+          <WeatherIcon
+            code={props.data.icon}
+            alt={props.data.description}
+            size="120"
+          />
           <h1>{Math.round(fahrenheit())}ºF</h1>
           <h3 className="text-capitalize">{props.data.description}</h3>
         </div>

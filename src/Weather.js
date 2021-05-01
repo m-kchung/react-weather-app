@@ -5,6 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 
 import WeatherToday from "./WeatherToday";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -63,6 +64,7 @@ export default function Weather(props) {
           </span>
         </div>
         <WeatherToday data={weatherData} />
+        <WeatherForecast />
       </div>
     );
   } else {

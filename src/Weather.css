@@ -10,15 +10,7 @@
   );
 }
 
-.Weather ul {
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
 
-.Weather li {
-  font-size: 15px;
-}
 
 .Weather h1 {
   font-size: 40px;
