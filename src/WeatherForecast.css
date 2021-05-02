@@ -42,3 +42,8 @@
   text-decoration: none;
   font-weight: 400;
 }
+
+.WeatherForecast .forecast-temp-min {
+  color: #9c9c9c;
+  margin-left: 4px;
+}

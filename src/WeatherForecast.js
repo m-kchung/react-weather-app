@@ -1,68 +1,48 @@
-import React from "react";
-import WeatherIcon from "./WeatherIcon";
+import React, { useState } from "react";
 import "./WeatherForecast.css";
+import axios from "axios";
+import WeatherForecastDay from "./WeatherForecastDay";
 
-export default function WeatherForecast() {
-  return (
-    <div className="WeatherForecast">
-      <ul className="forecastMenu">
-        <li className="forecastMenuButton">
-          <span className="forecastActive">Today</span>
-        </li>
-        <li className="forecastMenuButton">
-          <span className="forecastInactive">Next 5 days</span>
-        </li>
-      </ul>
+export default function WeatherForecast(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
 
-      <div className="WeatherForecastSection">
-        <div className="row">
-          <div className="col">
-            <ul>
-              <li>Sun</li>
-              <li>
-                <WeatherIcon code="01d" size="60" />
-              </li>
-              <li>12ºC</li>
-            </ul>
-          </div>
-          <div className="col">
-            <ul>
-              <li>Mon</li>
-              <li>
-                <WeatherIcon code="01d" size="60" />
-              </li>
-              <li>12ºC</li>
-            </ul>
-          </div>
-          <div className="col">
-            <ul>
-              <li>Tue</li>
-              <li>
-                <WeatherIcon code="01d" size="60" />
-              </li>
-              <li>12ºC</li>
-            </ul>
-          </div>
-          <div className="col">
-            <ul>
-              <li>Wed</li>
-              <li>
-                <WeatherIcon code="01d" size="60" />
-              </li>
-              <li>12ºC</li>
-            </ul>
-          </div>
-          <div className="col">
-            <ul>
-              <li>Thu</li>
-              <li>
-                <WeatherIcon code="01d" size="60" />
-              </li>
-              <li>12ºC</li>
-            </ul>
+  function handleResponse(response) {
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
+
+  if (loaded) {
+    return (
+      <div className="WeatherForecast">
+        <ul className="forecastMenu">
+          <li className="forecastMenuButton">
+            <span className="forecastActive">Next 5 days</span>
+          </li>
+        </ul>
+
+        <div className="WeatherForecastSection">
+          <div className="row">
+            {forecast.map(function (dailyForecast, index) {
+              if (index < 5) {
+                return (
+                  <div className="col" key={index}>
+                    <WeatherForecastDay data={dailyForecast} />
+                  </div>
+                );
+              }
+            })}
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "5a9b3c5051ae04b7172dded8be3de831";
+    let latitude = props.coordinates.lat;
+    let longitude = props.coordinates.lon;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return null;
+  }
 }

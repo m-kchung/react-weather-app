@@ -22,6 +22,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
       description: response.data.weather[0].description,
+      coordinates: response.data.coord,
     });
   }
 
@@ -64,7 +65,7 @@ export default function Weather(props) {
           </span>
         </div>
         <WeatherToday data={weatherData} />
-        <WeatherForecast />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
