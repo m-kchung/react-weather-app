@@ -15,6 +15,7 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       city: response.data.name,
+      country: response.data.sys.country,
       date: new Date(),
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
@@ -33,6 +34,16 @@ export default function Weather(props) {
     axios.get(apiUrl).then(handleResponse);
   }
 
+  function showPosition(response) {
+    let latitude = response.coords.latitude;
+    let longitude = response.coords.longitude;
+
+    const apiKey = "5a9b3c5051ae04b7172dded8be3de831";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     search();
@@ -40,6 +51,11 @@ export default function Weather(props) {
 
   function handleCityChange(event) {
     setCity(event.target.value);
+  }
+
+  function currentLocation(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(showPosition);
   }
 
   if (weatherData.ready) {
@@ -60,7 +76,7 @@ export default function Weather(props) {
               />
             </form>
           </span>
-          <span className="locationIcon">
+          <span className="locationIcon" onClick={currentLocation}>
             <MdLocationOn />
           </span>
         </div>

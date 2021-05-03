@@ -25,7 +25,9 @@ export default function WeatherToday(props) {
       <div className="WeatherToday">
         <div className="row">
           <div className="col-9">
-            <h1>{props.data.city}</h1>
+            <h1>
+              {props.data.city}, {props.data.country}
+            </h1>
             <h4>
               <FormattedDate date={props.data.date} />
             </h4>
@@ -57,7 +59,9 @@ export default function WeatherToday(props) {
       <div className="WeatherToday">
         <div className="row">
           <div className="col-9">
-            <h1>{props.data.city}</h1>
+            <h1>
+              {props.data.city}, {props.data.country}
+            </h1>
             <h4>
               <FormattedDate date={props.data.date} />
             </h4>

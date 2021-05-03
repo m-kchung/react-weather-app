@@ -10,8 +10,6 @@
   );
 }
 
-
-
 .Weather h1 {
   font-size: 40px;
   font-weight: 500;
@@ -129,4 +127,10 @@
 .Weather .locationIcon {
   font-size: 30px;
   padding: 5px;
+  color: #5b5b5b;
+}
+
+.Weather .locationIcon:hover {
+  cursor: pointer;
+  color: #ffffff;
 }
