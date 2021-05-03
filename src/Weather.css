@@ -1,15 +1,62 @@
 .Weather {
-  border-radius: 20px;
-  padding: 20px 15px;
   margin: 30px auto 0;
+}
+
+/* weather background */
+.Weather .clearSky {
   background-image: linear-gradient(
     to top,
     #fffaf5 0%,
     #fff5eb 1%,
     #8fdbff 100%
   );
+  border-radius: 20px;
 }
 
+.Weather .cloudy {
+  background-image: linear-gradient(
+    to top,
+    #f5ecee 0%,
+    #f0dde1 1%,
+    #b0e6ff 100%
+  );
+  border-radius: 20px;
+}
+
+.Weather .rainy {
+  background-image: linear-gradient(
+    to top,
+    #d2d6f0 0%,
+    #d2d6f0 1%,
+    #e6dee9 100%
+  );
+  border-radius: 20px;
+}
+
+.Weather .snowy {
+  background-image: linear-gradient(
+    to top,
+    #f2f6f8 0%,
+    #f2f6f8 1%,
+    #c2ddeb 100%
+  );
+  border-radius: 20px;
+}
+
+.Weather .misty {
+  background-image: linear-gradient(
+    to top,
+    #dad4ec 0%,
+    #dad4ec 1%,
+    #f3e7e9 100%
+  );
+  border-radius: 20px;
+}
+
+/* Weather App */
+.weatherApp {
+  padding: 20px 15px;
+}
 .Weather h1 {
   font-size: 40px;
   font-weight: 500;

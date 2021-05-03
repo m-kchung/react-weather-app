@@ -5,7 +5,6 @@ import { FaSearch } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 
 import WeatherToday from "./WeatherToday";
-import WeatherForecast from "./WeatherForecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -22,6 +21,7 @@ export default function Weather(props) {
       feelsLike: response.data.main.feels_like,
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
+      iconNumber: Math.round(response.data.weather[0].icon.substring(0, 2)),
       description: response.data.weather[0].description,
       coordinates: response.data.coord,
     });
@@ -58,30 +58,51 @@ export default function Weather(props) {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
 
+  function background() {
+    if (weatherData.iconNumber <= 2) {
+      return "clearSky";
+    }
+    if (weatherData.iconNumber >= 3 && weatherData.iconNumber < 5) {
+      return "cloudy";
+    }
+    if (weatherData.iconNumber > 5 && weatherData.iconNumber < 12) {
+      return "rainy";
+    }
+    if (weatherData.iconNumber === 13) {
+      return "snowy";
+    }
+    if (weatherData.iconNumber === 50) {
+      return "misty";
+    }
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <div className="searchSection">
-          <span className="searchForm">
-            <form onSubmit={handleSubmit}>
-              <span className="searchIcon">
-                <FaSearch />
+        <div className={background()}>
+          <div className="weatherApp">
+            <div className="searchSection">
+              <span className="searchForm">
+                <form onSubmit={handleSubmit}>
+                  <span className="searchIcon">
+                    <FaSearch />
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Enter a City"
+                    autoComplete="off"
+                    className="searchBar"
+                    onChange={handleCityChange}
+                  />
+                </form>
               </span>
-              <input
-                type="text"
-                placeholder="Enter a City"
-                autoComplete="off"
-                className="searchBar"
-                onChange={handleCityChange}
-              />
-            </form>
-          </span>
-          <span className="locationIcon" onClick={currentLocation}>
-            <MdLocationOn />
-          </span>
+              <span className="locationIcon" onClick={currentLocation}>
+                <MdLocationOn />
+              </span>
+            </div>
+            <WeatherToday data={weatherData} />
+          </div>
         </div>
-        <WeatherToday data={weatherData} />
-        
       </div>
     );
   } else {
