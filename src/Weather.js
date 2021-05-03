@@ -81,7 +81,7 @@ export default function Weather(props) {
           </span>
         </div>
         <WeatherToday data={weatherData} />
-        <WeatherForecast coordinates={weatherData.coordinates} />
+        
       </div>
     );
   } else {

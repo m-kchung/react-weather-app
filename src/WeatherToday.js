@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTodayDetails from "./WeatherTodayDetails";
+import WeatherForecast from "./WeatherForecast";
 
 export default function WeatherToday(props) {
   const [unit, setUnit] = useState("celsius");
@@ -47,11 +48,13 @@ export default function WeatherToday(props) {
             code={props.data.icon}
             alt={props.data.description}
             size={120}
+            color="#5B5B5B"
           />
           <h1>{Math.round(props.data.temperature)}ºC</h1>
           <h3 className="text-capitalize">{props.data.description}</h3>
         </div>
         <WeatherTodayDetails details={props.data} unit={unit} />
+        <WeatherForecast coordinates={props.data.coordinates} unit={unit} />
       </div>
     );
   } else {
@@ -81,11 +84,13 @@ export default function WeatherToday(props) {
             code={props.data.icon}
             alt={props.data.description}
             size={120}
+            color="#5B5B5B"
           />
           <h1>{Math.round(fahrenheit())}ºF</h1>
           <h3 className="text-capitalize">{props.data.description}</h3>
         </div>
         <WeatherTodayDetails details={props.data} unit={unit} />
+        <WeatherForecast coordinates={props.data.coordinates} unit={unit} />
       </div>
     );
   }
