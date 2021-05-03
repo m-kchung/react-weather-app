@@ -33,7 +33,7 @@ export default function WeatherToday(props) {
               <FormattedDate date={props.data.date} />
             </h4>
           </div>
-          <div className="col-3">
+          <div className="col-3 unitToggle">
             <button className="btn unitButton activeButton">ºC</button>
             <button
               className="btn unitButton notActiveButton"
@@ -69,7 +69,7 @@ export default function WeatherToday(props) {
               <FormattedDate date={props.data.date} />
             </h4>
           </div>
-          <div className="col-3">
+          <div className="col-3 unitToggle">
             <button
               className="btn unitButton notActiveButton"
               onClick={convertToCelsius}

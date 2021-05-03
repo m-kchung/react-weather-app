@@ -55,8 +55,11 @@
 
 /* Weather App */
 .weatherApp {
-  padding: 20px 15px;
+  padding: 20px;
 }
+
+/* font */
+
 .Weather h1 {
   font-size: 40px;
   font-weight: 500;
@@ -92,14 +95,12 @@
   margin: 0;
   font-weight: 300;
 }
-.Weather .forecast {
-  text-align: center;
-}
 
-.Weather .searchBar {
-  border: 0px;
-  outline: none;
-  width: 50%;
+/* Search Section */
+.Weather .searchSection {
+  margin-bottom: 30px;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .Weather .searchForm {
@@ -109,15 +110,65 @@
   border-radius: 100px;
 }
 
-.Weather .searchSection {
-  margin: 10px 0 30px;
-  text-align: center;
-  vertical-align: middle;
+.Weather .searchBar {
+  border: 0px;
+  outline: none;
+  width: 60%;
 }
 
 .Weather form {
   display: inline;
 }
+
+.Weather .searchIcon {
+  font-size: 20px;
+  padding: 0 10px 0 0;
+}
+
+.Weather .locationIcon {
+  font-size: 30px;
+  padding: 0 0 0 5px;
+  color: #5b5b5b;
+}
+
+.Weather .locationIcon:hover {
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/* Unit button */
+.Weather .unitToggle {
+  text-align: right;
+}
+.Weather .unitButton {
+  padding: 8px 13px;
+  border-radius: 13px;
+  margin-left: 2px;
+}
+
+.Weather .unitButton:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+.Weather .unitButton:focus {
+  box-shadow: none;
+}
+
+.Weather .activeButton {
+  background-color: #5b5b5b;
+  color: white;
+}
+
+.Weather .notActiveButton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Weather Today */
+.Weather canvas {
+  margin: 20px auto 15px;
+}
+
+/* Weather Today Details */
 
 .Weather .WeatherTodayDetails {
   text-align: center;
@@ -139,45 +190,6 @@
   padding: 0px;
 }
 
-.Weather canvas {
-  margin: 15px auto;
-}
-
-.Weather .unitButton {
-  padding: 8px 13px;
-  border-radius: 13px;
-  color: #5b5b5b;
-}
-
-.Weather .unitButton:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
-.Weather .unitButton:focus {
-  box-shadow: none;
-}
-
-.Weather .activeButton {
-  background-color: #5b5b5b;
-  color: white;
-}
-
-.Weather .notActiveButton:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.Weather .searchIcon {
-  font-size: 20px;
-  padding: 0 10px 0 0;
-}
-
-.Weather .locationIcon {
-  font-size: 30px;
-  padding: 5px;
-  color: #5b5b5b;
-}
-
-.Weather .locationIcon:hover {
-  cursor: pointer;
-  color: #ffffff;
+.Weather .forecast {
+  text-align: center;
 }

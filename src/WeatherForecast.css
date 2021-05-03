@@ -1,11 +1,12 @@
 .WeatherForecast {
   margin-top: 30px;
+  color: #747474;
 }
 
 .WeatherForecast .WeatherForecastSection {
   margin-top: 7px;
   border-radius: 15px;
-  padding: 10px;
+  padding: 13px 10px 0 10px;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -31,4 +32,17 @@
 .WeatherForecast .forecast-temp-min {
   color: #9c9c9c;
   margin-left: 4px;
+}
+
+.WeatherForecast .forecast-temp-max {
+  color: #747474;
+  margin-left: 4px;
+}
+
+.WeatherForecast canvas {
+  margin: 10px auto;
+}
+
+.WeatherForecast .col-formatting {
+  padding: 0;
 }
